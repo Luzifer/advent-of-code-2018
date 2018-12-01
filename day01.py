@@ -22,7 +22,7 @@ def loop_until_duplicate(numbers):
 
 def main():
     numbers = []
-    with open('01.txt') as f:
+    with open('day01.txt') as f:
         for line in f:
             numbers.append(int(line))
 
