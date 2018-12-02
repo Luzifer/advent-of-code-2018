@@ -42,7 +42,7 @@ def find_close_two(box_ids):
 
 def main():
     box_ids = []
-    with open('day02.txt') as f:
+    with open('data/day02.txt') as f:
         for line in f:
             box_ids.append(line.strip())
 
