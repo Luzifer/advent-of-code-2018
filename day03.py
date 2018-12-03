@@ -5,13 +5,7 @@ import re
 
 
 def get_overlapping_area(claims):
-    w, h = 0, 0
-
-    for claim in claims:
-        if claim['x']+claim['w'] > w:
-            w = claim['x']+claim['w']
-        if claim['y']+claim['h'] > h:
-            h = claim['y']+claim['h']
+    w, h = 1000, 1000
 
     material = [[0 for x in range(w)] for y in range(h)]
 
