@@ -2,11 +2,16 @@
 # -*- coding: utf-8 -*-
 
 from timeit import default_timer as timer
+import os
 
 
 def ingest_data():
+    data_file = 'data/{}.txt'.format(
+        os.path.basename(__file__).strip('.py'),
+    )
+
     indata = ""
-    with open('data/day05.txt') as f:
+    with open(data_file) as f:
         indata = f.read().strip()
 
     return indata
