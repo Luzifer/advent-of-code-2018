@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from timeit import default_timer as timer
 import re
 
 
@@ -26,7 +27,7 @@ def solve_problem2(indata):
     min_bb = 2**31-1  # replacement for maxint
     snap = None
 
-    for c in range(0, 500000):
+    for c in range(0, 100000):
         pts = [[e[0]+e[2]*c, e[1]+e[3]*c] for e in indata]
         x = [e[0] for e in pts]
         y = [e[1] for e in pts]
@@ -44,15 +45,28 @@ def solve_problem2(indata):
 
 
 def main():
+    start = timer()
+
     indata = []
     with open('data/day10.txt') as f:
         for line in f:
             coords = [int(e) for e in re.findall(r'[0-9-]+', line)]
+
             assert len(coords) == 4
             indata.append(coords)
 
+    ingest = timer()
     print('Solution part 1: {}'.format(solve_problem1(indata)))
+    s1 = timer()
     print('Solution part 2: {}'.format(solve_problem2(indata)))
+    s2 = timer()
+
+    print('\nExecution took {:.2f}s (Ingest: {:.2f}s, Solution 1; {:.2f}s, Solution 2: {:.2f}s)'.format(
+        s2-start,
+        ingest-start,
+        s1-ingest,
+        s2-s1,
+    ))
 
 
 if __name__ == '__main__':
