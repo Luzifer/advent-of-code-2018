@@ -25,8 +25,14 @@ def solve_problem2(indata):
     pass
 
 
+def tests():
+    pass
+
+
 def main():
     start = timer()
+    tests()
+    test = timer()
 
     indata = ingest_data()
     ingest = timer()
@@ -37,9 +43,10 @@ def main():
     print('Solution part 2: {}'.format(solve_problem2(indata)))
     s2 = timer()
 
-    print('\nExecution took {:.2f}s (Ingest: {:.2f}s, Solution 1; {:.2f}s, Solution 2: {:.2f}s)'.format(
+    print('\nExecution took {:.2f}s (Tests: {:.2f}s, Ingest: {:.2f}s, Solution 1; {:.2f}s, Solution 2: {:.2f}s)'.format(
         s2-start,
-        ingest-start,
+        test-start,
+        ingest-test,
         s1-ingest,
         s2-s1,
     ))
